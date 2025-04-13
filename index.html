@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sentiment Analysis</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #333;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #f1c40f;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f1c40f;
+      color: #222;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d4ac0d;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #4cd137;
+    }
+  </style>
+</head>
+<body>
+
+  
+  
+  <div class="container">
+    <div class="custom-heading">
+      <h1> Sudipta Ghosh, IIT Kharagpur, 23MA60R03</h1>
+    </div>
+    <h1>Sentiment Analysis</h1>
+
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="text" name="review" placeholder="Enter the product review here" required />
+      <button type="submit">Predict Sentiment</button>
+    </form>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
+
